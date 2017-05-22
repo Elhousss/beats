@@ -7,7 +7,7 @@ node('slave') {
  stage ('Build Image'){
    img = docker.build("elhousss/beats")
  }
-  stage ('Push image'){
+ stage ('Push image'){
      /* we'll push the image with two tags:
      * First, the incremental build number from Jenkins
      * Second, the 'latest' tag. */
@@ -17,5 +17,9 @@ node('slave') {
         img.push("${env.BUILD_NUMBER}")
         img.push("latest")
      }
-}
+ }
+ stage ('Run Application') {
+      // Run application using Docker image
+      sh "docker run -d --name filebeat elhousss/beats"
+ }
 }
