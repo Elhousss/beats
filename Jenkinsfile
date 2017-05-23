@@ -20,7 +20,7 @@ node('slave') {
  }
  stage ('Run BEATS') {
       // Run application using Docker image
-      sh "chmod go-w /home/ubuntu/jenkins/node1/workspace/Build-beats/filebeat.yml"
+      sh "chmod 777 /home/ubuntu/jenkins/node1/workspace/Build-beats/filebeat.yml"
       sh "docker run -d --name filebeat elhousss/beats"
  }
 }
