@@ -7,6 +7,7 @@ node('slave') {
  stage ('Build Image'){
    sh "chmod 777 /home/ubuntu/jenkins/node1/workspace/Build-beats/filebeat.yml"
    sh "chmod go-w /home/ubuntu/jenkins/node1/workspace/Build-beats/filebeat.yml"
+   sh "chmod go-w /tmp/fileJava*.log"
    img = docker.build("elhousss/beats")
  }
  stage ('Push image'){
