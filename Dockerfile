@@ -1,4 +1,4 @@
 FROM prima/filebeat
-RUN chmod go-w filebeat.yml
+RUN chmod 777 filebeat.yml
 COPY filebeat.yml /filebeat.yml
 
